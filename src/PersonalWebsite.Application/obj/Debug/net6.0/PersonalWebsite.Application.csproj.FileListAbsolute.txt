@@ -1,0 +1,12 @@
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\bin\Debug\net6.0\PersonalWebsite.Application.deps.json
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\bin\Debug\net6.0\PersonalWebsite.Application.dll
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\bin\Debug\net6.0\ref\PersonalWebsite.Application.dll
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\bin\Debug\net6.0\PersonalWebsite.Application.pdb
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.csproj.AssemblyReference.cache
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.AssemblyInfoInputs.cache
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.AssemblyInfo.cs
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.csproj.CoreCompileInputs.cache
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.dll
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\ref\PersonalWebsite.Application.dll
+C:\Users\bourn\Desktop\personal_website\personal_website.git\workbranch\src\PersonalWebsite.Application\obj\Debug\net6.0\PersonalWebsite.Application.pdb
