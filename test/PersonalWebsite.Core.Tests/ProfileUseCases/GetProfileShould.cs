@@ -1,23 +1,24 @@
 ﻿using System;
-using PersonalWebsite.Application.Profile.Query;
 using FluentAssertions;
 using PersonalWebsite.Application.Common.Repositories;
+using PersonalWebsite.Application.Profile.Query;
+using PersonalWebsite.Core.Tests.TestDoubles.ProfileUseCases;
 using Xunit;
 
-namespace PersonalWebsite.Core.Tests.Profile;
+namespace PersonalWebsite.Core.Tests.ProfileUseCases;
 
 public class GetProfileShould
 {
     private const string FIRST_NAME = "firstName";
     private const string LAST_NAME = "lastName";
-    private static readonly DateTime BIRTHDATE = new DateTime(1995, 11, 25);
+    private static readonly DateTime Birthdate = new DateTime(1995, 11, 25);
     private const string BIO = "This is my bio";
-    private readonly GetProfileResponse EXPECTED_RESPONSE = 
+    private readonly GetProfileResponse _expectedResponse = 
          new GetProfileResponse()
         {
             FirstName = FIRST_NAME,
             LastName = LAST_NAME, 
-            Birthdate = BIRTHDATE,
+            Birthdate = Birthdate,
             Bio = BIO
         };
 
@@ -25,7 +26,7 @@ public class GetProfileShould
     
     public GetProfileShould()
     {
-        _profileRepository = new FakeProfileRepository();
+        _profileRepository = new FakeProfileRepository(FIRST_NAME, LAST_NAME, BIO, Birthdate);
     }
 
     [Fact]
@@ -36,32 +37,7 @@ public class GetProfileShould
 
         GetProfileResponse response = getProfileHandler.Handle(getProfileCommand);
 
-        response.Should().Be(EXPECTED_RESPONSE);
+        response.Should().Be(_expectedResponse);
     }
         
-}
-
-public class FakeProfileRepository : IProfileRepository
-{
-
-    private readonly string FirstName; 
-    private readonly string LastName; 
-    private readonly string Bio; 
-    private readonly string Birthdate; 
-    
-    public FakeProfileRepository(string firstName, string lastName, string Bio, DateTime birthdate, string bio, string birthdate1)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        this.Bio = bio;
-        Birthdate = birthdate1;
-    }
-
-    public Domain.Entities.Profile GetProfile()
-    {
-        return new Profile()
-        {
-            FirstName = 
-        }
-    }
 }
