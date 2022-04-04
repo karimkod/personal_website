@@ -1,8 +1,7 @@
 ﻿using System;
 using PersonalWebsite.Domain.Entities;
 
-
-namespace PersonalWebsite.Application.Profile.Query;
+namespace PersonalWebsite.Application.ProfileUseCases.Query;
 
 public class GetProfileResponse : IEquatable<GetProfileResponse>
 {
@@ -43,7 +42,7 @@ public class GetProfileResponse : IEquatable<GetProfileResponse>
         return !Equals(left, right);
     }
 
-    public static GetProfileResponse FromProfile(Domain.Entities.Profile profile)
+    public static GetProfileResponse FromProfile(Profile profile)
     {
         return new GetProfileResponse()
         {

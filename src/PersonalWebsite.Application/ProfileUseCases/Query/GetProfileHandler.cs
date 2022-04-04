@@ -1,6 +1,6 @@
 ﻿using PersonalWebsite.Application.Common.Repositories;
 
-namespace PersonalWebsite.Application.Profile.Query;
+namespace PersonalWebsite.Application.ProfileUseCases.Query;
 
 public class GetProfileHandler
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using FluentAssertions;
 using PersonalWebsite.Application.Common.Repositories;
-using PersonalWebsite.Application.Profile.Query;
-using PersonalWebsite.Core.Tests.TestDoubles.ProfileUseCases;
+using PersonalWebsite.Application.ProfileUseCases.Query;
+using PersonalWebsite.Core.Tests.ProfileUseCases.TestDoubles;
 using Xunit;
 
 namespace PersonalWebsite.Core.Tests.ProfileUseCases;
