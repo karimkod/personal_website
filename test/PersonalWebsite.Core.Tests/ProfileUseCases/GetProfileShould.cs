@@ -30,7 +30,7 @@ public class GetProfileShould
     }
 
     [Fact]
-    public void GetProfile_Should_ReturnExpectedProfile()
+    public void ReturnExpectedProfile()
     {
         var getProfileCommand = new GetProfile();
         var getProfileHandler = new GetProfileHandler(_profileRepository);
