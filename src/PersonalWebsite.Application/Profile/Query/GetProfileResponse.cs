@@ -1,4 +1,6 @@
 ﻿using System;
+using PersonalWebsite.Domain.Entities;
+
 
 namespace PersonalWebsite.Application.Profile.Query;
 
@@ -39,5 +41,16 @@ public class GetProfileResponse : IEquatable<GetProfileResponse>
     public static bool operator !=(GetProfileResponse? left, GetProfileResponse? right)
     {
         return !Equals(left, right);
+    }
+
+    public static GetProfileResponse FromProfile(Domain.Entities.Profile profile)
+    {
+        return new GetProfileResponse()
+        {
+            FirstName = profile.FirstName,
+            LastName = profile.LastName,
+            Bio = profile.Bio,
+            Birthdate = profile.Birthdate
+        };
     }
 }

@@ -1,17 +1,22 @@
-﻿using System;
+﻿using PersonalWebsite.Application.Common.Repositories;
 
 namespace PersonalWebsite.Application.Profile.Query;
 
 public class GetProfileHandler
 {
+
+    private readonly IProfileRepository _profileRepository;
+
+    public GetProfileHandler(IProfileRepository profileRepository)
+    {
+        _profileRepository = profileRepository;
+    }
+
     public GetProfileResponse Handle(GetProfile getProfileCommand)
     {
-        return new GetProfileResponse()
-        {
-            FirstName = "firstName",
-            LastName = "lastName",
-            Birthdate = new DateTime(1995, 11, 25), 
-            Bio = "This is my bio"
-        };
+        var profile = _profileRepository.GetProfile();
+
+        return GetProfileResponse.FromProfile(profile);
+        
     }
 }
