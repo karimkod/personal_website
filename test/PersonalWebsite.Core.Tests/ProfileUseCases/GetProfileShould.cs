@@ -37,7 +37,16 @@ public class GetProfileShould
 
         GetProfileResponse response = getProfileHandler.Handle(getProfileCommand);
 
-        response.Should().Be(_expectedResponse);
+        AssertGetProfileEqualsExpected(response, _expectedResponse);
+    }
+
+
+    private void AssertGetProfileEqualsExpected(GetProfileResponse expected, GetProfileResponse actual)
+    {
+        actual.FirstName.Should().Be(expected.FirstName);
+        actual.LastName.Should().Be(expected.LastName);
+        actual.Bio.Should().Be(expected.Bio);
+        actual.Birthdate.Should().Be(expected.Birthdate);
     }
         
 }
