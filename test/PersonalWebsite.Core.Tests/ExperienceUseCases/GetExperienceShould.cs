@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using FluentAssertions;
+using PersonalWebsite.Application.ExperienceUseCases.Query;
+using PersonalWebsite.Core.Tests.Common.TestDoubles;
+using PersonalWebsite.Core.Tests.ExperienceUseCases.TestDoubles;
+using PersonalWebsite.Domain.Entities;
 using Xunit;
 
 namespace PersonalWebsite.Core.Tests.ExperienceUseCases;
@@ -108,98 +112,6 @@ public class GetExperienceShould
             ComanyName = experienceResponse.ComanyName,
             PositionName = experienceResponse.PositionName,
             Description = experienceResponse.Description
-        };
-    }
-}
-
-internal class StubDateTimeService : IDateTimeService
-{
-    public DateTime Today { get; set; } 
-    
-}
-
-public class Experience
-{
-    public DateTime StartDate { get; set; }
-    public DateTime? EndDate { get; set; }
-    public string ComanyName { get; set; }
-    public string PositionName { get; set; }
-    public string Description { get; set; }
-
-    public TimeSpan Period(DateTime todayDate) => (EndDate ?? todayDate) - StartDate;
-}
-
-public class FakeExperienceRepository : IExperienceRepository
-{
-    private List<Experience> _experiences = new List<Experience>();
-
-    public void Add(Experience experience)
-    {
-        _experiences.Add(experience);
-    }
-
-    public IEnumerable<Experience> GetAll()
-    {
-        return _experiences;
-    }
-}
-
-public interface IExperienceRepository
-{
-    IEnumerable<Experience> GetAll();
-}
-
-public class GetExperienceHandler
-{
-    private readonly IExperienceRepository _experienceRepository;
-    private readonly IDateTimeService _dateTimeService;
-
-    public GetExperienceHandler(IExperienceRepository experienceRepository, IDateTimeService dateTimeService)
-    {
-        _experienceRepository = experienceRepository;
-        _dateTimeService = dateTimeService;
-    }
-
-    public List<ExperienceResponse> Handle(GetExperience getExperienceQuery)
-    {
-        var experiences = _experienceRepository.GetAll();
-        return experiences.Select(e =>
-        {
-            var experienceResponse = ExperienceResponse.FromExperience(e);
-            experienceResponse.Period = e.Period(_dateTimeService.Today);
-            return experienceResponse;
-            
-        }).ToList();
-    }
-}
-
-public interface IDateTimeService
-{
-    public DateTime Today { get; }
-}
-
-public class GetExperience
-{
-}
-
-public class ExperienceResponse
-{
-    public DateTime StartDate { get; set; }
-    public DateTime? EndDate { get; set; }
-    public string ComanyName { get; set; }
-    public string PositionName { get; set; }
-    public string Description { get; set; }
-    public TimeSpan Period { get; set; }
-
-    public static ExperienceResponse FromExperience(Experience experience)
-    {
-        return new ExperienceResponse()
-        {
-            StartDate = experience.StartDate,
-            EndDate = experience.EndDate,
-            Description = experience.Description,
-            ComanyName = experience.ComanyName,
-            PositionName = experience.PositionName
         };
     }
 }
